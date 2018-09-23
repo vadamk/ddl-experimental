@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
+  background-color: #fafbfe;
+
+  * {
+    box-sizing: border-box;
+  }
+}

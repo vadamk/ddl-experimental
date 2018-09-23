@@ -1,0 +1,28 @@
+<div class="menu">
+  <ul class="menu__list">
+    <li
+      class="menu__item"
+      *ngFor="let menuItem of items">
+      <a
+        class="menu__link"
+        [routerLink]="menuItem.routerLink"
+        routerLinkActive="menu__link--active">
+        <span>{{menuItem.label}}</span>
+      </a>
+      <div class="menu__submenu">
+        <ul class="menu__list">
+          <li
+            class="menu__item"
+            *ngFor="let menuItem of menuItem.children">
+            <a
+              class="menu__link"
+              [routerLink]="menuItem.routerLink"
+              routerLinkActive="menu__link--active">
+              <span>{{menuItem.label}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

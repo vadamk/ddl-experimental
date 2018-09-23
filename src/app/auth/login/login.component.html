@@ -1,0 +1,81 @@
+<app-auth-layout>
+
+  <h2 class="text-center mb-4">Login</h2>
+
+  <form
+    (ngSubmit)="onSubmit(loginForm)"
+    #loginForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        email
+        type="email"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': email.invalid && (email.dirty || email.touched || submited)
+        }"
+        id="email"
+        name="email"
+        [(ngModel)]="model.userName"
+        #email="ngModel"
+        maxlength="256"
+        required
+        placeholder="Enter email">
+      <div
+        class="invalid-feedback"
+        *ngIf="email.invalid && (email.dirty || email.touched || submited)">
+
+        <div *ngIf="email?.errors.required">Email is required</div>
+        <div *ngIf="email?.errors.email">Email is invalid</div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': password.invalid && (password.dirty || password.touched || submited)
+        }"
+        id="password"
+        name="password"
+        [(ngModel)]="model.password"
+        #password="ngModel"
+        required
+        minlength="6"
+        maxlength="256"
+        placeholder="Password">
+      <div
+        class="invalid-feedback"
+        *ngIf="password.invalid && (password.dirty || password.touched || submited)">
+        <div *ngIf="password?.errors.required">Password is required</div>
+        <div *ngIf="password?.errors.minlength">
+          Password must be at least 6 characters long
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="rememberMeChecked"
+        name="rememberMeChecked"
+        [(ngModel)]="model.rememberMeChecked"
+        #rememberMeChecked="ngModel">
+      <label
+        class="form-check-label"
+        for="rememberMeChecked">
+        Check me out
+      </label>
+    </div>
+    <div class="text-center mt-4">
+      <button
+        [disabled]="submited && loginForm.invalid"
+        type="submit"
+        class="btn btn-primary px-4">
+        Submit
+      </button>
+    </div>
+  </form>
+</app-auth-layout>
