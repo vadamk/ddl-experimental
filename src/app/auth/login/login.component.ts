@@ -39,8 +39,13 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(this.model)
       .subscribe(() => {
-        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        // this.router.navigate([this.returnUrl]);
+
+        // Store user info to localStorage
+        this.loginService.storeUserInfo().subscribe();
+
+        // Redirect to saved or to home page
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.router.navigate([this.returnUrl]);
       });
 
   }
