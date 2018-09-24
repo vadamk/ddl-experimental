@@ -22,6 +22,9 @@ export class LoginService {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
 
+        this._http.get<any>(`${environment.apiUrl}/api/auth/userInfo`)
+          .subscribe(userinfo => localStorage.setItem('userInfo', JSON.stringify(userinfo.data)));
+
         return user;
       }));
   }
