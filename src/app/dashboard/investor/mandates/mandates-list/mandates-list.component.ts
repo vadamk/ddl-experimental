@@ -9,12 +9,16 @@ import { MandatesService } from '@core/services/mandates/mandates.service';
 })
 export class MandatesListComponent implements OnInit {
 
+  mandatesList$: any;
+
   constructor(
     private _mandatesService: MandatesService
   ) { }
 
   ngOnInit() {
+    // this.mandatesList$ = this._mandatesService.list({
 
+    // });
   }
 
 }

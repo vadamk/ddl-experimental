@@ -28,19 +28,21 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  onSubmit(event) {
+  onSubmit(form) {
+
     this.submited = true;
 
     // stop here if form is invalid
-    if (event.invalid) {
-      return;
+    if (form.invalid) {
+      return false;
     }
 
     this.loginService.login(this.model)
       .subscribe(() => {
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        this.router.navigate([this.returnUrl]);
+        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        // this.router.navigate([this.returnUrl]);
       });
+
   }
 
   ngOnInit() {
