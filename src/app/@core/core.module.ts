@@ -11,7 +11,7 @@ import { JwtInterceptor } from '@core/interceptors/jwt.interceptor';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthGuard,

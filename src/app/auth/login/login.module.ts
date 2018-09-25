@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
-import { AuthLayoutModule } from '@theme/layouts/auth-layout/auth-layout.module';
+import { AuthLayoutModule } from '@shared/layouts/auth-layout/auth-layout.module';
 
 @NgModule({
   imports: [

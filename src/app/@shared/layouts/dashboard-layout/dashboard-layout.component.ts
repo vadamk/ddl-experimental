@@ -8,7 +8,8 @@ import { MenuItem } from '@app/@core/models/menu.model';
     <div class="layout-wrap">
       <app-sidebar
         #Sidebar
-        [items]="menuItems"></app-sidebar>
+        [items]="menuItems">
+      </app-sidebar>
       <div class="right-column">
         <app-toolbar></app-toolbar>
         <div class="page-content">
@@ -30,6 +31,9 @@ import { MenuItem } from '@app/@core/models/menu.model';
 
       .page-content {
         padding: 0 20px 30px;
+        height: calc(100% - 70px);
+        overflow: hidden;
+        overflow-y: auto;
       }
     `
   ]

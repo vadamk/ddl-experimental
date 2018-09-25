@@ -1,0 +1,38 @@
+.card {
+  margin-bottom: 20px;
+
+  font-size: 14px;
+  color: #6c757d;
+
+  border: 0 none;
+  box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    line-height: 1.2;
+  }
+
+  .icon-info {
+
+    .icon-info__icon {
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    & + .icon-info {
+      margin-left: 10px;
+    }
+  }
+
+  .card-footer {
+    padding: 1.25rem;
+    background-color: #fff;
+
+    .progress {
+      height: 10px;
+    }
+  }
+
+}

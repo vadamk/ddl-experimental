@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InvestorRoutingModule } from './investor-routing.module';
 import { InvestorComponent } from './investor.component';
 
-import { DashboardLayoutModule } from '@theme/layouts/dashboard-layout/dashboard-layout.module';
+import { DashboardLayoutModule } from '@shared/layouts/dashboard-layout/dashboard-layout.module';
 
 @NgModule({
   imports: [

@@ -1,0 +1,61 @@
+<div class="card shadow-sm bg-white rounded">
+  <div class="card-body">
+
+    <h5 class="card-title">
+      <a [routerLink]="[mandate.id]">{{mandate.mandateName}}</a>
+    </h5>
+
+    <p class="mb-4">
+      <span
+        *ngIf="mandate.status === 'InProgress'"
+        class="badge badge-pill badge-primary">
+        InProgress
+      </span>
+      <span
+        *ngIf="mandate.status === 'Completed'"
+        class="badge badge-pill badge-success">
+        Completed
+      </span>
+    </p>
+
+    <div class="mt-2">
+      <b>Created On:</b>
+      {{ mandate.createdDate | date }}
+    </div>
+    <div class="mt-2">
+      <b>Deadline:</b>
+      {{ mandate.deadlineDate | date }}
+    </div>
+
+    <p class="mt-4 mb-0">
+      <span class="icon-info">
+        <span class="icon-info__icon">
+          <i class="fas fa-tasks"></i>
+        </span>
+        <span>{{ mandate.noOfStages }}</span>
+        Stages
+      </span>
+      <span
+        class="icon-info"
+        tooltip="WorkFlow Name"
+        placement="top">
+        <span class="icon-info__icon">
+          <i class="fas fa-project-diagram"></i>
+        </span>
+        <span>{{ mandate.workFlowName }}</span>
+      </span>
+    </p>
+
+  </div>
+
+  <div class="card-footer">
+    <p>
+      <b>Progress</b>
+      <span class="float-right">{{progress}}%</span>
+    </p>
+
+    <progressbar
+      [value]="progress"
+      [type]="progressType"></progressbar>
+  </div>
+</div>

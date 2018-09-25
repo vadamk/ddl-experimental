@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { MandatesService } from '@core/services/mandates/mandates.service';
+import { UserService } from '@core/services/user.service';
+import { MandateListItem } from '@core/models/mandates/mandates-list.model';
 
 @Component({
   selector: 'app-mandates-list',
@@ -9,16 +13,21 @@ import { MandatesService } from '@core/services/mandates/mandates.service';
 })
 export class MandatesListComponent implements OnInit {
 
-  mandatesList$: any;
+  mandatesList$: Observable<MandateListItem[]>;
 
   constructor(
-    private _mandatesService: MandatesService
+    private _mandatesService: MandatesService,
+    private _userService: UserService,
   ) { }
 
   ngOnInit() {
-    // this.mandatesList$ = this._mandatesService.list({
-
-    // });
+    this.mandatesList$ = this._mandatesService.list({
+      companyId: this._userService.userInfo.companyId,
+      pageNumber: 0,
+      pageSize: 20
+    }).pipe(
+      map(response => response.items)
+    );
   }
 
 }

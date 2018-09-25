@@ -16,8 +16,8 @@
       "@core/*": [
         "src/app/@core/*"
       ],
-      "@theme/*": [
-        "src/app/@theme/*"
+      "@shared/*": [
+        "src/app/@shared/*"
       ],
       "@app/*": [
         "src/app/*"
