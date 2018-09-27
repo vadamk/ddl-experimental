@@ -1,0 +1,83 @@
+
+:host {
+  padding: 30px;
+}
+
+.table-wrap {
+  position: relative;
+  width: 100%;
+
+  border: 1px solid #d1d9e1;
+  border-radius: 4px;
+  overflow: auto;
+
+  table {
+    border-spacing: 0;
+  
+    tr {
+      height: 1px; // fluid hack
+      
+      td, th {
+        position: relative;
+        height: inherit; // fluid hack
+        border: 0 none;
+
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        span {
+          display: block;
+          width: calc(100% + 2px);
+          height: calc(100% + 2px);
+
+          padding: 15px;
+          border: 1px solid #d1d9e1;
+          border-right: 0;
+          border-bottom: 0;
+          text-overflow: ellipsis;
+
+          background-color: #fff;
+        }
+      }
+
+      td {
+        min-width: 140px;
+      }
+    }
+
+    thead tr:first-child th:first-child,
+    tbody tr td:first-child {
+      min-width: 530px;
+    }
+
+
+    thead tr:first-child th:first-child span {
+      border-top-left-radius: 4px;
+    }
+
+    thead tr:first-child th:last-child span {
+      border-top-right-radius: 4px;
+    }
+
+    tbody tr:last-child td:first-child span {
+      border-bottom-left-radius: 4px;
+    }
+
+    tbody tr:last-child td:last-child span {
+      border-bottom-right-radius: 4px;
+    }
+
+    thead tr:first-child th:first-child span,
+    tbody tr td:first-child span {
+      border-left: 0 none;
+    }
+
+    thead tr:first-child th span {
+      border-top: 0 none;
+    }
+  }
+}

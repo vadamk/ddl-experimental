@@ -1,0 +1,36 @@
+<div class="table-wrap">
+
+  <table>
+
+    <thead>
+
+      <tr *ngFor="let row of tableStructure.head">
+
+        <th
+          *ngFor="let cell of row"
+          [attr.colspan]="cell.colspan"
+          [attr.rowspan]="cell.rowspan">
+          <span>{{cell.value}}</span>
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let row of tableStructure.body">
+
+        <td *ngFor="let cell of row">
+          <span [ngStyle]="{
+            'padding-left.px': 15 + cell.order * 30
+          }">{{cell.value}}</span>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

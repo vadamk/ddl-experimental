@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: './questionnaires/questionnaires.module#QuestionnairesModule'
       },
       {
+        path: 'reports',
+        loadChildren: './reports/reports.module#ReportsModule'
+      },
+      {
         path: '',
         redirectTo: 'home'
       }

@@ -17,7 +17,7 @@ export class MandatesService {
     companyId,
     pageNumber,
     pageSize,
-    filter = '%7C'
+    filter = '|'
   }: {
       companyId: string,
       pageNumber: number,
