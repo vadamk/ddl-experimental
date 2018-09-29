@@ -3974,6 +3974,12 @@ ngx-bootstrap@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-3.0.1.tgz#e98d2fc6340f32a9d358cd08e8fda7dcb23bdab3"
 
+ngx-trim-directive@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-trim-directive/-/ngx-trim-directive-1.0.2.tgz#29cdc39a7ff7477b9a77a3180f0ef87d01abfc6a"
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
