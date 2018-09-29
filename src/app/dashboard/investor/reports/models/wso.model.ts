@@ -1,15 +1,13 @@
 export class WsoTableStructure {
-  head: {
-    value: string,
-    colspan?: number,
-    rowspan?: number
-  }[][];
-  body: {
-    value: string,
-    collspan?: number,
-    rowspan?: number,
-    order: number
-  }[];
+  head: WsoTableStructureCell[][];
+  body: WsoTableStructureCell[][];
+}
+
+export class WsoTableStructureCell {
+  value: string;
+  colspan?: number;
+  rowspan?: number;
+  order?: number;
 }
 
 export class WsoReport {

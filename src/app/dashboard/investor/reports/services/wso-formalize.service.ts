@@ -5,7 +5,8 @@ import {
   WsoReportSection,
   WsoReportQuestion,
   WsoReportUserAssignWithScoreSet,
-  WsoTableStructure
+  WsoTableStructure,
+  WsoTableStructureCell
 } from '../models/wso.model';
 
 @Injectable({
@@ -32,13 +33,10 @@ export class WsoFormalizeService {
 
   private formalizeHeader(users: WsoReportUserAssignWithScoreSet[], weightSetName): any {
 
-    this._result.head = [[], []];
-
-    this._result.head[0] = [
+    let firstRow: WsoTableStructureCell[] = [
       {
         value: 'Questionnaire Structure',
         rowspan: 2,
-        colspan: null
       },
       {
         value: weightSetName,
@@ -46,9 +44,11 @@ export class WsoFormalizeService {
       }
     ];
 
+    let secondRow: WsoTableStructureCell[] = [];
+
     users.forEach(user => {
-      this._result.head[0] = [
-        ...this._result.head[0],
+      firstRow = [
+        ...firstRow,
         {
           value: user.userAssignName,
           colspan: user.questionnaireScoreSets.length * 2
@@ -56,31 +56,29 @@ export class WsoFormalizeService {
       ];
 
       user.questionnaireScoreSets.forEach(set => {
-        this._result.head[1] = [
-          ...this._result.head[1],
-          {
-            value: set.scoreSetName
-          },
-          {
-            value: 'Weighted score'
-          }
+        secondRow = [
+          ...secondRow,
+          { value: set.scoreSetName },
+          { value: 'Weighted score' }
         ];
       });
     });
+
+    this._result.head = [firstRow, secondRow];
   }
 
   private formalizeSections(sections: WsoReportSection[], order) {
     sections.forEach(section => {
 
       let row: any = [
-        { value: '' },
+        {
+          value: `${section.mergedOrder} ${section.name}`,
+          order
+        },
+        {
+          value: section.weight
+        }
       ];
-
-      row[0] = {
-        value: `${section.mergedOrder} ${section.name}`,
-        order
-      };
-      row[1] = { value: section.weight };
 
       section.questionnaireSectionUserAssignWithScoreSets
         .forEach(user => {
@@ -100,25 +98,21 @@ export class WsoFormalizeService {
       } else if (section.questions && section.questions.length) {
         this.formalizeQuestions(section.questions);
       }
-
     });
   }
 
   private formalizeQuestions(questions: WsoReportQuestion[]) {
     questions.map(question => {
 
-
       let row: any = [
-        { value: '' },
+        {
+          value: `${question.mergedOrder} ${question.title}`,
+          order: 2
+        },
+        {
+          value: question.weight
+        }
       ];
-
-      row[0] = {
-        value: `${question.mergedOrder} ${question.title}`,
-        order: 2
-      };
-      row[1] = {
-        value: question.weight
-      };
 
       question.questionUserAssignWithScoreSets
         .forEach(user => {
