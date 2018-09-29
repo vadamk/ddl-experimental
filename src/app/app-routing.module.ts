@@ -8,7 +8,22 @@ import { AuthGuard } from '@app/@core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    redirectTo: 'investor',
+    pathMatch: 'full',
+  },
+  {
+    path: 'investor',
+    loadChildren: './dashboard/investor/investor.module#InvestorModule',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'manager',
+    loadChildren: './dashboard/manager/manager.module#ManagerModule',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'superadmin',
+    loadChildren: './dashboard/superadmin/superadmin.module#SuperadminModule',
     canActivate: [AuthGuard]
   },
   {
