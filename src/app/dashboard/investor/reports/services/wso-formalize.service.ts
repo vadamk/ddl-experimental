@@ -102,7 +102,7 @@ export class WsoFormalizeService {
   }
 
   private formalizeQuestions(questions: WsoReportQuestion[]) {
-    questions.map(question => {
+    questions.forEach(question => {
 
       let row: any = [
         {
@@ -128,5 +128,4 @@ export class WsoFormalizeService {
       this._result.body = [...this._result.body, row];
     });
   }
-
 }
