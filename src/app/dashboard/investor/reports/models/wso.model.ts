@@ -1,13 +1,16 @@
 export class WsoTableStructure {
   head: WsoTableStructureCell[][];
   body: WsoTableStructureCell[][];
+  footer: WsoTableStructureCell[][];
 }
 
 export class WsoTableStructureCell {
-  value: string;
+  value: string | number;
   colspan?: number;
   rowspan?: number;
   order?: number;
+  marking?: 'high' | 'middle' | 'low';
+  uppercase?: boolean;
 }
 
 export class WsoReport {
@@ -81,6 +84,7 @@ export class WsoReportSectionUserAssignWithScoreSet {
   sectionScoreSets: {
     scoreSetId: string;
     score: number;
+    marking?: 'high' | 'middle' | 'low';
     weightedScore: number;
   }[];
 }
@@ -90,6 +94,7 @@ export class WsoReportQuestionUserAssignWithScoreSet {
   questionScoreSets: {
     scoreSetId: string;
     score: number;
+    marking?: 'high' | 'middle' | 'low';
     weightedScore: number;
   }[];
 }

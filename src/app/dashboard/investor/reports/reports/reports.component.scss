@@ -31,21 +31,44 @@
 
         span {
           display: block;
+          position: relative;
+          padding: 15px;
           width: calc(100% + 2px);
           height: calc(100% + 2px);
 
-          padding: 15px;
+          text-overflow: ellipsis;
+          color: #7d8798;
+
           border: 1px solid #d1d9e1;
           border-right: 0;
           border-bottom: 0;
-          text-overflow: ellipsis;
-
           background-color: #fff;
         }
       }
 
       td {
         min-width: 140px;
+
+        span {
+          color: #4f5867;
+        }
+
+        span.high-score:before,
+        span.low-score:before,
+        span.middle-score:before {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 3px;
+
+          content: '';
+        }
+        
+        span.high-score:before   { background-color: #a4e19b; }
+        span.low-score:before    { background-color: #e1adc6; }
+        span.middle-score:before { background-color: #e8d42d; }
       }
     }
 
@@ -72,7 +95,8 @@
     }
 
     thead tr:first-child th:first-child span,
-    tbody tr td:first-child span {
+    tbody tr td:first-child span,
+    tfoot tr td:first-child span {
       border-left: 0 none;
     }
 

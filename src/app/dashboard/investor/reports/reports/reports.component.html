@@ -8,6 +8,9 @@
 
         <th
           *ngFor="let cell of row"
+          [ngStyle]="{
+            'text-transform': cell.uppercase ? 'uppercase' : 'none'
+          }"
           [attr.colspan]="cell.colspan"
           [attr.rowspan]="cell.rowspan">
           <span>{{cell.value}}</span>
@@ -22,14 +25,35 @@
       <tr *ngFor="let row of tableStructure.body">
 
         <td *ngFor="let cell of row">
-          <span [ngStyle]="{
-            'padding-left.px': 15 + cell.order * 15
-          }">{{cell.value}}</span>
+          <span
+            [ngClass]="{
+              'high-score': cell.marking === 'high',
+              'middle-score': cell.marking === 'middle',
+              'low-score': cell.marking === 'low'
+            }"
+            [ngStyle]="{
+              'padding-left.px': 15 + cell.order * 15
+            }">
+            {{cell.value}}
+          </span>
         </td>
 
       </tr>
 
     </tbody>
+
+    <tfoot>
+
+      <tr *ngFor="let row of tableStructure.footer">
+        <td
+          *ngFor="let cell of row"
+          [attr.colspan]="cell.colspan"
+          [attr.rowspan]="cell.rowspan">
+          <span>{{cell.value}}</span>
+        </td>
+      </tr>
+
+    </tfoot>
 
   </table>
 
