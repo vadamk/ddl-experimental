@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { InvestorComponent } from './investor.component';
+import { InvestorComponent } from './+investor/investor.component';
 
 const routes: Routes = [
   {

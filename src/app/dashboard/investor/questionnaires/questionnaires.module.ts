@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { QuestionnairesRoutingModule } from './questionnaires-routing.module';
-import { QuestionnairesComponent } from './questionnaires.component';
+import { QuestionnairesComponent } from './+questionnaires/questionnaires.component';
 
 @NgModule({
   imports: [
