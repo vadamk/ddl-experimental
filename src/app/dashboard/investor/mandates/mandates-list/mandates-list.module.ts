@@ -8,7 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 
 import { MandatesListRoutingModule } from './mandates-list-routing.module';
 
-import { MandatesListComponent } from './mandates-list.component';
+import { MandatesListComponent } from './+mandates-list/mandates-list.component';
 import { MandateListItemComponent } from './mandate-list-item/mandate-list-item.component';
 
 @NgModule({

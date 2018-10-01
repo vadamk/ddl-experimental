@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MandatesListComponent } from './mandates-list.component';
+import { MandatesListComponent } from './+mandates-list/mandates-list.component';
 
 const routes: Routes = [
   {
