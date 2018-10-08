@@ -12,8 +12,8 @@ import { MenuItem } from '@app/@core/models/menu.model';
       </app-sidebar>
       <div class="right-column">
         <app-toolbar></app-toolbar>
-        <app-breadcrumbs></app-breadcrumbs>
         <div class="page-content">
+          <app-breadcrumbs></app-breadcrumbs>
           <ng-content></ng-content>
         </div>
       </div>
