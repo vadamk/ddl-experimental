@@ -35,6 +35,14 @@ import { MenuItem } from '@app/@core/models/menu.model';
         height: calc(100% - 70px);
         overflow: hidden;
         overflow-y: auto;
+
+        & > /deep/ * > p {
+          display: flex;
+          width: 100%;
+          height: 400px;
+          justify-content: center;
+          align-items: center;
+        }
       }
     `
   ]

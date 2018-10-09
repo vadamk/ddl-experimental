@@ -26,10 +26,6 @@ export class InvestorComponent implements OnInit {
         label: 'Questionnaires',
         routerLink: ['questionnaires'],
       },
-      {
-        label: 'Reports',
-        routerLink: ['reports'],
-      }
     ];
 
   }

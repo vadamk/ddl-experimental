@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { LoginService } from '@core/services/auth/login.service';
@@ -8,7 +8,7 @@ import { LoginService } from '@core/services/auth/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   submited: boolean;
 
@@ -47,10 +47,5 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         this.router.navigate([this.returnUrl]);
       });
-
   }
-
-  ngOnInit() {
-  }
-
 }
