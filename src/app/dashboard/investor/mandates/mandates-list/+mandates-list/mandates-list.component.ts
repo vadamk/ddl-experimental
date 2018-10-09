@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { MandatesService } from '@core/services/mandates/mandates.service';
-import { UserService } from '@core/services/user.service';
+import { UserService } from '@core/services/user/user.service';
 import { MandateListItem } from '@core/models/mandates/mandates-list.model';
 
 @Component({

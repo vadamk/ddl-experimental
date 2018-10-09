@@ -3,31 +3,28 @@
   <h2 class="text-center mb-4">Login</h2>
 
   <form
-    (ngSubmit)="onSubmit(loginForm)"
-    #loginForm="ngForm">
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()">
 
     <div class="form-group">
-      <label for="email">Email address</label>
+      <label for="userName">Email address</label>
       <input
         email
         type="email"
+        id="userName"
+        name="userName"
+        formControlName="userName"
+        placeholder="Enter email"
         class="form-control"
         [ngClass]="{
-          'is-invalid': email.invalid && (email.dirty || email.touched || submited)
+          'is-invalid': util.validateField(f.userName, submited)
         }"
-        id="email"
-        name="email"
-        [(ngModel)]="model.userName"
-        #email="ngModel"
-        maxlength="256"
-        required
-        trim="blur"
-        placeholder="Enter email">
+        trim="blur">
       <div
         class="invalid-feedback"
-        *ngIf="email.invalid && (email.dirty || email.touched || submited)">
-        <div *ngIf="email?.errors.required">Email is required</div>
-        <div *ngIf="email?.errors.email">Email is invalid</div>
+        *ngIf="util.validateField(f.userName, submited)">
+        <div *ngIf="f.userName.errors.required">Email is required</div>
+        <div *ngIf="f.userName.errors.email">Email is invalid</div>
       </div>
     </div>
 
@@ -35,24 +32,20 @@
       <label for="password">Password</label>
       <input
         type="password"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid': password.invalid && (password.dirty || password.touched || submited)
-        }"
         id="password"
         name="password"
-        [(ngModel)]="model.password"
-        #password="ngModel"
-        minlength="6"
-        maxlength="256"
-        trim="blur"
-        required
-        placeholder="Password">
+        formControlName="password"
+        placeholder="Password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': util.validateField(f.password, submited)
+        }"
+        trim="blur">
       <div
         class="invalid-feedback"
-        *ngIf="password.invalid && (password.dirty || password.touched || submited)">
-        <div *ngIf="password?.errors.required">Password is required</div>
-        <div *ngIf="password?.errors.minlength">
+        *ngIf="util.validateField(f.password, submited)">
+        <div *ngIf="f.password?.errors.required">Password is required</div>
+        <div *ngIf="f.password?.errors.minlength">
           Password must be at least 6 characters long
         </div>
       </div>
@@ -64,8 +57,7 @@
         class="form-check-input"
         id="rememberMeChecked"
         name="rememberMeChecked"
-        [(ngModel)]="model.rememberMeChecked"
-        #rememberMeChecked="ngModel">
+        formControlName="rememberMeChecked">
       <label
         class="form-check-label"
         for="rememberMeChecked">
