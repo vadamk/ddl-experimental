@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardLayoutComponent } from '@app/layouts/dashboard-layout/dashboard-layout.component';
+import { DashboardLayoutComponent } from './dashboard-layout.component';
 
 describe('DashboardLayoutComponent', () => {
   let component: DashboardLayoutComponent;
