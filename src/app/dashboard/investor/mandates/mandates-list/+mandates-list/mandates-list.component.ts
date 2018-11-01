@@ -23,7 +23,7 @@ export class MandatesListComponent implements OnInit {
   ngOnInit() {
     this.mandatesList$ = this._mandatesService.list({
       companyId: this._userService.userInfo.companyId,
-      pageNumber: 0,
+      pageNumber: 1,
       pageSize: 20
     }).pipe(
       map(response => response.items)
