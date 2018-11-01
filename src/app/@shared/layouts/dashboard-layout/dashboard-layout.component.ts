@@ -37,7 +37,7 @@ import { MenuItem } from '@app/@core/models/menu.model';
         overflow-y: auto;
       }
 
-      .page-content /deep/ > * > p {
+      .page-content /deep/ .page-stub {
         display: flex;
         justify-content: center;
         align-items: center;
