@@ -68,6 +68,7 @@
     <div class="text-center mt-4">
       <button
         [disabled]="submited && loginForm.invalid"
+        [ngStyle]="{'pointer-events': submited && loginForm.valid ? 'none' : 'auto'}"
         type="submit"
         class="btn btn-primary px-4">
         Submit
